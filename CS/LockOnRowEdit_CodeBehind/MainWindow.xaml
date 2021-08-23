@@ -10,7 +10,7 @@
     <Grid>
         <dxg:GridControl x:Name="grid" AutoGenerateColumns="AddNew">
             <dxg:GridControl.View>
-                <dxg:TableView x:Name="view" EditFormShowMode="Inline" RowEditStarted="TableView_RowEditStarted" RowEditFinished="TableView_RowEditFinished"/>
+                <dxg:TableView x:Name="view" EditFormShowMode="Inline" RowEditStarted="OnRowEditStarted" RowEditFinished="OnRowEditFinished"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
     </Grid>
