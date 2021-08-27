@@ -36,13 +36,9 @@ namespace LockOnRowEdit_CodeBehind {
             updateTimer = new Timer(UpdateRows, null, 0, 1);
         }
 
-        private void OnRowEditStarted(object sender, RowEditStartedEventArgs e) {
-            updatesLocker = true;
-        }
+        private void OnRowEditStarted(object sender, RowEditStartedEventArgs e) => updatesLocker = true;
 
-        private void OnRowEditFinished(object sender, RowEditFinishedEventArgs e) {
-            updatesLocker = false;
-        }
+        private void OnRowEditFinished(object sender, RowEditFinishedEventArgs e) => updatesLocker = false;
 
         void UpdateRows(object parameter) {
             if(!updatesLocker) {
