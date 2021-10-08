@@ -43,7 +43,7 @@ namespace LockOnRowEdit_MVVM {
 
         void UpdateRows(object parameter) {
             if(!updatesLocker) {
-                var row = Data[random.Next(0, Data.Count - 1)];
+                var row = Data[random.Next(0, Data.Count)];
                 if(row.ShouldUpdate) {
                     row.Value = random.Next(1, 100);
                 }

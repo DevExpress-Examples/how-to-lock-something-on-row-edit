@@ -42,7 +42,7 @@ namespace LockOnRowEdit_CodeBehind {
 
         void UpdateRows(object parameter) {
             if(!updatesLocker) {
-                var row = data[random.Next(0, data.Count - 1)];
+                var row = data[random.Next(0, data.Count)];
                 if(row.ShouldUpdate) {
                     row.Value = random.Next(1, 100);
                 }
