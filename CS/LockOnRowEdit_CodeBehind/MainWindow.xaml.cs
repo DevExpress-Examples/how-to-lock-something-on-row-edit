@@ -25,7 +25,7 @@ namespace LockOnRowEdit_CodeBehind {
 
         Timer updateTimer;
 
-        volatile bool updatesLocker;
+        bool updatesLocker;
 
         Random random;
 
@@ -36,12 +36,12 @@ namespace LockOnRowEdit_CodeBehind {
             updateTimer = new Timer(UpdateRows, null, 0, 1);
         }
 
-        private void OnRowEditStarted(object sender, RowEditStartedEventArgs e) => updatesLocker = true;
+        private void OnRowEditStarted(object sender, RowEditStartedEventArgs e) => Volatile.Write(ref updatesLocker, true);
 
-        private void OnRowEditFinished(object sender, RowEditFinishedEventArgs e) => updatesLocker = false;
+        private void OnRowEditFinished(object sender, RowEditFinishedEventArgs e) => Volatile.Write(ref updatesLocker, false);
 
         void UpdateRows(object parameter) {
-            if(!updatesLocker) {
+            if(!Volatile.Read(ref updatesLocker)) {
                 var row = data[random.Next(0, data.Count)];
                 if(row.ShouldUpdate) {
                     row.Value = random.Next(1, 100);

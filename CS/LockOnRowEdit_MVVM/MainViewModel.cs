@@ -3,8 +3,10 @@ using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.Xpf;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace LockOnRowEdit_MVVM {
     public class DataItem : BindableBase {
@@ -27,7 +29,7 @@ namespace LockOnRowEdit_MVVM {
 
         Timer updateTimer;
 
-        volatile bool updatesLocker;
+        bool updatesLocker;
 
         public MainViewModel() {
             random = new Random();
@@ -36,13 +38,13 @@ namespace LockOnRowEdit_MVVM {
         }
 
         [Command]
-        public void LockUpdates(RowEditStartedArgs args) => updatesLocker = true;
+        public void LockUpdates(RowEditStartedArgs args) => Volatile.Write(ref updatesLocker, true);
 
         [Command]
-        public void UnlockUpdates(RowEditFinishedArgs args) => updatesLocker = false;
+        public void UnlockUpdates(RowEditFinishedArgs args) => Volatile.Write(ref updatesLocker, false);
 
         void UpdateRows(object parameter) {
-            if(!updatesLocker) {
+            if(!Volatile.Read(ref updatesLocker)) {
                 var row = Data[random.Next(0, Data.Count)];
                 if(row.ShouldUpdate) {
                     row.Value = random.Next(1, 100);
