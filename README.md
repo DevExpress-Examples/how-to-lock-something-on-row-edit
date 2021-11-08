@@ -5,6 +5,33 @@
 <!-- default badges end -->
 # Data Grid for WPF - How to Pause Data Updates in the Edit Form
 
+This example illustartates how to pause data updates when a user edits a row in the Edit Form. To do that, handle the [RowEditStarted](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditStarted) and [RowEditFinished](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditFinished) events or create commands in a View Model and bind them to the [RowEditStartedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditStartedCommand) and [RowEditFinishedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditFinishedCommand) properties.
+
+In this example, the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) updates data on a timer. The `UpdateRows()` function updates data depending on the `updatesLocker` value. When a user starts to edit a row, the [RowEditStarted](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditStarted) event occurs. The event handler sets the `updatesLocker` value to **true** to lock data updates. When the user finished to edit the row, [RowEditFinished](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditFinished) occurs and the event handler unlocks updates.
+
+```cs
+bool updatesLocker;
+// ...
+private void OnRowEditStarted(object sender, RowEditStartedEventArgs e) => Volatile.Write(ref updatesLocker, true);
+
+private void OnRowEditFinished(object sender, RowEditFinishedEventArgs e) => Volatile.Write(ref updatesLocker, false);
+
+void UpdateRows(object parameter) {
+    if(!Volatile.Read(ref updatesLocker)) {
+        var row = data[random.Next(0, data.Count)];
+        if(row.ShouldUpdate) {
+            row.Value = random.Next(1, 100);
+        }
+    }
+}
+```
+
+In the [TreeListView](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView), use the following events and properties: 
+- [NodeEditStarted](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditStarted)
+- [NodeEditFinished](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditFinished)
+- [NodeEditStartedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditStartedCommand)
+- [NodeEditFinishedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditFinishedCommand)
+
 <!-- default file list -->
 
 ## Files to Look At
