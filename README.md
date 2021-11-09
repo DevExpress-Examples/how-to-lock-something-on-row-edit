@@ -36,13 +36,13 @@ In the [TreeListView](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeLi
 
 ## Files to Look At
 
-### MVVM Pattern
-- [MainViewModel.cs](./CS/LockOnRowEdit_MVVM/MainViewModel.cs#L40-L44) ([MainViewModel.vb](./VB/LockOnRowEdit_MVVM/MainViewModel.vb#L88-L96))
-- [MainWindow.xaml](./CS/LockOnRowEdit_MVVM/MainWindow.xaml#L17) ([MainWindow.xaml](./VB/LockOnRowEdit_MVVM/MainWindow.xaml#L17))
-
 ### Code-Behind
 - [MainViewModel.xaml.cs](./CS/LockOnRowEdit_CodeBehind/MainWindow.xaml.cs#L39-L41) ([MainViewModel.xaml.vb](./VB/LockOnRowEdit_CodeBehind/MainWindow.xaml.vb#L81-L87))
 - [MainWindow.xaml](./CS/LockOnRowEdit_CodeBehind/MainWindow.xaml#L13) ([MainWindow.xaml](./VB/LockOnRowEdit_CodeBehind/MainWindow.xaml#L13))
+
+### MVVM Pattern
+- [MainViewModel.cs](./CS/LockOnRowEdit_MVVM/MainViewModel.cs#L40-L44) ([MainViewModel.vb](./VB/LockOnRowEdit_MVVM/MainViewModel.vb#L88-L96))
+- [MainWindow.xaml](./CS/LockOnRowEdit_MVVM/MainWindow.xaml#L17) ([MainWindow.xaml](./VB/LockOnRowEdit_MVVM/MainWindow.xaml#L17))
 
 <!-- default file list end -->
 
