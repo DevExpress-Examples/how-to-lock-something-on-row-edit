@@ -71,10 +71,10 @@ Namespace LockOnRowEdit_CodeBehind
         Private random As Random
 
         Public Sub New()
-            InitializeComponent()
+            Me.InitializeComponent()
             random = New Random()
             data = New List(Of DataItem)(Enumerable.Range(0, 20).[Select](Function(i) New DataItem(random, i)))
-            grid.ItemsSource = data
+            Me.grid.ItemsSource = data
             updateTimer = New Timer(AddressOf UpdateRows, Nothing, 0, 1)
         End Sub
 

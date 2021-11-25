@@ -9,7 +9,7 @@ Namespace LockOnRowEdit_MVVM
         Inherits Window
 
         Public Sub New()
-            InitializeComponent()
+            Me.InitializeComponent()
         End Sub
     End Class
 End Namespace
