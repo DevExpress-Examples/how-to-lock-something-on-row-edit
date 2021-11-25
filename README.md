@@ -48,7 +48,7 @@ In the [TreeListView](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeLi
 
 ## Documentation
 
-- [Edit Form](https://docs.devexpress.com/WPF/401667/controls-and-libraries/data-grid/data-editing-and-validation/modify-cell-values/edit-entire-row#edit-form)
+- [Edit Form](https://docs.devexpress.com/WPF/403491/controls-and-libraries/data-grid/data-editing-and-validation/modify-cell-values/edit-form)
 - [RowEditStarted](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditStarted) / [NodeEditStarted](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditStarted)
 - [RowEditFinished](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditFinished) / [NodeEditFinished](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditFinished)
 - [RowEditStartedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.RowEditStartedCommand) / [NodeEditStartedCommand](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TreeListView.NodeEditStartedCommand)
